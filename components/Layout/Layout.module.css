@@ -1,0 +1,17 @@
+.layout {
+
+}
+
+.layoutContainer {
+    display: flex;
+}
+
+.asideLayout {
+    flex: 0 0 auto; /* Allow the aside to have a fixed width */
+    width: 300px; /* Adjust the width as needed */
+}
+
+.mainLayout {
+    flex: 1; /* Allow the main content to take up the remaining space */
+    padding: 20px; /* Example padding for the main content */
+}
