@@ -15,8 +15,6 @@ export const Layout = ({children}: {children: ReactNode}) => {
           </aside>
           <main className={cls.mainLayout}>
             {children}
-            <p>THIS IS MAIN PARAGRAPH!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</p>
-            <Cart />
           </main>
         </div>
     </div>

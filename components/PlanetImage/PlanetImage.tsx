@@ -4,7 +4,7 @@ import Image from "next/image";
 export const PlanetImage = () => {
   return (
     <div className={styles.planetContainer} >
-      <Image src="/planetImage.png" alt="Planet image" width={436} height={620} className={styles.planetImg}/>
+      <Image src="/planetImage.png" alt="Planet image" width={436} height={620} className={styles.planetImg} priority />
     </div>
   )
 }

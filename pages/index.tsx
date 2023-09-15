@@ -117,18 +117,39 @@ import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import {Layout} from "@/components/Layout/Layout";
+import {AsteroidsList} from "@/components/AsteroidsList/AsteroidsList";
 
-export default function Home() {
+const url = "https://api.nasa.gov/neo/rest/v1/feed?start_date=2023-09-14&end_date=2023-09-14&api_key=bXcLsxkE0rRaauQsHzuweAwfgSNLug3lmYE9e9MC";
+
+export default function Home({asteroids}: {asteroids: any}) {
   return (
     <>
-      <Head>
-        <title>Asteroids App</title>
-        <meta name="description" content="Application about astoroids moving to the Earth" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Layout>
-      </Layout>
+      <AsteroidsList asteroids={asteroids} />
     </>
   )
+}
+
+export const getStaticProps = async () => {
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+
+    if (!data) {
+      return {
+        notFound: true,
+      }
+    }
+
+    return {
+      props: {
+        asteroids: data,
+      },
+    }
+  } catch (error) {
+    return {
+      props: {
+        asteroids: null,
+      },
+    }
+  }
 }
