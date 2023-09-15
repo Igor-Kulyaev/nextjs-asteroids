@@ -11,8 +11,8 @@ export interface IEstimatedDiameter {
 }
 
 export interface ICloseApproachDataItem {
-  "close_approach_date": string | Date;
-  "close_approach_date_full": string | Date;
+  "close_approach_date": string;
+  "close_approach_date_full": string;
   "epoch_date_close_approach": number;
   "relative_velocity": {
     "kilometers_per_second": string;

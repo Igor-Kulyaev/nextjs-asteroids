@@ -3,6 +3,9 @@
 # webstorm idea
 .idea
 
+# dotenv environment variable file
+.env
+
 # dependencies
 /node_modules
 /.pnp

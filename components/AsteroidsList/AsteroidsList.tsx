@@ -2,12 +2,12 @@ import styles from "./AsteroidsList.module.css";
 import {Cart} from "@/components/Cart/Cart";
 
 export const AsteroidsList = ({asteroids}: {asteroids: any}) => {
-  console.log("asteroids", asteroids);
+  // console.log("asteroids", asteroids);
   const {links, element_count, near_earth_objects} = asteroids || {};
-  const [arrayKey] = Object.keys(near_earth_objects);
+  const [arrayKey] = Object.keys(near_earth_objects || {});
   const array = near_earth_objects[arrayKey];
 
-  console.log('array', array);
+  // console.log('array', array);
 
   return (
     <>

@@ -15,9 +15,9 @@ export interface IAsteroid {
   close_approach_data: ICloseApproachDataItem[],
   orbital_data: {
     orbit_id: string;
-    orbit_determination_date: string | Date;
-    first_observation_date: string | Date;
-    last_observation_date: string | Date;
+    orbit_determination_date: string;
+    first_observation_date: string;
+    last_observation_date: string;
     data_arc_in_days: number;
     observations_used: number;
     orbit_uncertainty: string;
