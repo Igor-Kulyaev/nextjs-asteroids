@@ -1,0 +1,95 @@
+.asteroidWrapper {
+    width: 300px;
+    margin-bottom: 24px;
+}
+
+.asteroidApproachDate {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    margin-bottom: 8px;
+}
+
+.asteroidGeneralInfo {
+    display: flex;
+}
+
+.asteroidDistanceToEarth {
+    width: 150px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    margin-right: 8px;
+}
+
+.asteroidDiameterWrapper {
+    display: flex;
+}
+
+.asteroidDiameterImg {
+    display: flex;
+    align-items: center;
+}
+
+.asteroidAdditionalInfo {
+    margin-left: 8px;
+}
+
+.asteroidName {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    border-bottom: 1px solid var(--white);
+}
+
+.asteroidDiameter {
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+}
+
+.asteroidActions {
+    display: flex;
+    margin-top: 10px;
+}
+
+.orderAsteroid {
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 20px;
+    width: 90px;
+    height: 30px;
+    padding: 2px 11px 2px 11px;
+    border-radius: 16px;
+    gap: 2px;
+    background-color: var(--orange);
+    color: var(--white);
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.unorderAsteroid {
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 20px;
+    width: 90px;
+    height: 30px;
+    padding: 2px 11px 2px 11px;
+    border: none;
+    background-color: transparent;
+    color: var(--light-orange);
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.dangerousAsteroid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    margin-left: 10px;
+}

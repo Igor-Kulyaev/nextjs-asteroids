@@ -26,7 +26,6 @@ export const AsteroidsList = ({asteroids}: {asteroids: any}) => {
         })}
         </div>
       </div>
-      <Cart />
     </>
   )
 }
