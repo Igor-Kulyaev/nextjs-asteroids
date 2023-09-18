@@ -1,4 +1,4 @@
-import {IAsteroidsList} from "@/models/asteroidsListModel";
+import {IAsteroidsList} from "@/src/models/asteroidsListModel";
 
 export const AsteroidsListTemplate: IAsteroidsList = {
   "links": {

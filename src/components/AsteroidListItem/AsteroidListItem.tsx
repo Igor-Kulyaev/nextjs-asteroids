@@ -1,8 +1,8 @@
 import styles from "./AsteroidListItem.module.css";
-import {IAsteroidListItem} from "@/models/asteroidsListModel";
+import {IAsteroidListItem} from "@/src/models/asteroidsListModel";
 import {Dispatch, SetStateAction, useState} from "react";
 import Image from "next/image";
-import {convertDateToRusLocale, formatIntegerToRussianLocale, formatLunarDistancePluralRus} from "@/utils/utils";
+import {convertDateToRusLocale, formatIntegerToRussianLocale, formatLunarDistancePluralRus} from "@/src/utils/utils";
 
 export const AsteroidListItem = ({asteroid, setOrders, distanceSelector}: {asteroid: IAsteroidListItem; setOrders: Dispatch<SetStateAction<IAsteroidListItem[]>>, distanceSelector: "km" | "lunar"}) => {
   const [isOrdered, setIsOrdered] = useState(false);

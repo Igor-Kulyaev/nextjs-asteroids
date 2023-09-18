@@ -1,4 +1,4 @@
-import {IAsteroid} from "@/models/asteroidModel";
+import {IAsteroid} from "@/src/models/asteroidModel";
 
 export const asteroidTemplate: IAsteroid = {
   "links": {

@@ -1,4 +1,4 @@
-import {ICloseApproachDataItem, IEstimatedDiameter} from "@/models/sharedModel";
+import {ICloseApproachDataItem, IEstimatedDiameter} from "@/src/models/sharedModel";
 
 export interface IAsteroid {
   links: {

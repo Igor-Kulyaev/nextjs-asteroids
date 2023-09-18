@@ -1,10 +1,10 @@
 import { format } from 'date-fns';
-import {addUrlParams} from "@/utils/utils";
-import {IAsteroidListItem, IAsteroidsList} from "@/models/asteroidsListModel";
+import {addUrlParams} from "@/src/utils/utils";
+import {IAsteroidListItem, IAsteroidsList} from "@/src/models/asteroidsListModel";
 import {MutableRefObject, useEffect, useRef, useState} from "react";
-import {AsteroidListItem} from "@/components/AsteroidListItem/AsteroidListItem";
-import {Cart} from "@/components/Cart/Cart";
-import {Spinner} from "@/components/Spinner/Spinner";
+import {AsteroidListItem} from "@/src/components/AsteroidListItem/AsteroidListItem";
+import {Cart} from "@/src/components/Cart/Cart";
+import {Spinner} from "@/src/components/Spinner/Spinner";
 
 // const url = "https://api.nasa.gov/neo/rest/v1/feed?start_date=2023-09-14&end_date=2023-09-14&api_key=bXcLsxkE0rRaauQsHzuweAwfgSNLug3lmYE9e9MC";
 

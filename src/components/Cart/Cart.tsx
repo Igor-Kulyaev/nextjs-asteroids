@@ -1,5 +1,5 @@
 import cls from "./Cart.module.css";
-import {IAsteroidListItem} from "@/models/asteroidsListModel";
+import {IAsteroidListItem} from "@/src/models/asteroidsListModel";
 
 export const Cart = ({asteroidOrders}: {asteroidOrders: IAsteroidListItem[]}) => {
   return (
