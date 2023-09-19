@@ -10,14 +10,21 @@ import {useToastError} from "@/src/hooks/useToastError";
 export interface IAsteroidsListProps {
   asteroids: IAsteroidsList;
   setAsteroidOrders: Dispatch<SetStateAction<IAsteroidListItem[]>>;
+  distanceSelector: DistanceSelector;
+  setDistanceSelector: Dispatch<SetStateAction<DistanceSelector>>;
 }
 
-export default function AsteroidsList({asteroids, setAsteroidOrders}: IAsteroidsListProps) {
+export default function AsteroidsList({
+  asteroids,
+  setAsteroidOrders,
+  distanceSelector,
+  setDistanceSelector
+}: IAsteroidsListProps) {
   const nextPageLink = asteroids.links.next;
   const [todayDateKey] = Object.keys(asteroids.near_earth_objects);
   const asteroidsList = asteroids.near_earth_objects[todayDateKey];
 
-  const [distanceSelector, setDistanceSelector] = useState<DistanceSelector>(DistanceSelector.Kilometers);
+  // const [distanceSelector, setDistanceSelector] = useState<DistanceSelector>(DistanceSelector.Kilometers);
   const setKilometersDistance = () => setDistanceSelector(DistanceSelector.Kilometers);
   const setLunarDistance = () => setDistanceSelector(DistanceSelector.Lunar);
 
@@ -83,7 +90,7 @@ export default function AsteroidsList({asteroids, setAsteroidOrders}: IAsteroids
   return (
     <>
       <Toast message={toastError} type={ToastType.Error}/>
-      <div className={styles.asteroidsListColumn}>
+      <div className={styles.asteroidsListWrapper}>
         <h1 className={styles.asteroidsListTitle} >Ближайшие подлёты астероидов</h1>
         <div className={styles.asteroidsDistanceButtonsWrapper}>
           <button

@@ -1,37 +1,35 @@
 import { format } from 'date-fns';
 import {addUrlParams} from "@/src/shared/utils/utils";
 import {IAsteroidListItem, IAsteroidsList} from "@/src/models/asteroidsListModel";
-import {useState} from "react";
-import {BigScreenCart} from "@/src/entities/Cart/BigScreenCart/BigScreenCart";
-import styles from "@/src/styles/Home.module.css";
+import {Dispatch, SetStateAction, useEffect, useState} from "react";
 import AsteroidsList from "@/src/features/AsteroidsList/AsteroidsList";
-import {SmallScreenCart} from "@/src/entities/Cart/SmallScreenCart/SmallScreenCart";
 import {AsteroidsCart} from "@/src/features/AsteroidsCart/AsteroidsCart";
 import {oneHour} from "@/src/shared/constants/constants";
+import {useAsteroidOrders} from "@/src/hooks/useAsteroidOrders";
 
 export default function Home({asteroids}: {asteroids: IAsteroidsList}) {
-  const [asteroidOrders, setAsteroidOrders] = useState<IAsteroidListItem[]>([]);
+  // const [asteroidOrders, setAsteroidOrders] = useState<IAsteroidListItem[]>([]);
+
+  const {
+    asteroidOrders,
+    setAsteroidOrders,
+    distanceSelector,
+    setDistanceSelector
+  } = useAsteroidOrders();
+
+  // useEffect(() => {
+  //   setAsteroidOrders([]);
+  // }, []);
 
   return (
     <>
-      <AsteroidsList asteroids={asteroids} setAsteroidOrders={setAsteroidOrders}/>
-      {/*<div className={styles.asteroidsColumnsWrapper}>*/}
-
-      {/*  <div className={styles.asteroidsCartColumn}>*/}
-      {/*    <BigScreenCart asteroidOrders={asteroidOrders} />*/}
-      {/*  </div>*/}
-      {/*</div>*/}
+      <AsteroidsList
+        asteroids={asteroids}
+        setAsteroidOrders={setAsteroidOrders}
+        distanceSelector={distanceSelector}
+        setDistanceSelector={setDistanceSelector}
+      />
       <AsteroidsCart asteroidOrders={asteroidOrders} />
-      {/*<div style={{*/}
-      {/*  position: "fixed",*/}
-      {/*  bottom: 0,*/}
-      {/*  left: 0,*/}
-      {/*  right: 0,*/}
-      {/*  backgroundColor: "orange",*/}
-      {/*  height: "81px",*/}
-      {/*}}>*/}
-      {/*  text*/}
-      {/*</div>*/}
     </>
   )
 }
