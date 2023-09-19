@@ -1,6 +1,15 @@
+.planetContainer {
+    margin-right: 20px;
+}
+
 .planetImg {
     position: fixed;
     top: 138px;
     left: -136px;
-    /*z-index: 1; !* Ensure the image is above the background *!*/
+}
+
+@media screen and (max-width: 750px) {
+    .planetImg {
+        left: -329px;
+    }
 }

@@ -45,7 +45,7 @@
     line-height: 24px;
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 900px) {
     .cartContainer {
         width: 100%; /* Use the full width of the screen */
         bottom: 0; /* Position at the bottom */

@@ -51,3 +51,11 @@ export function makeRusPluralization(forms: [string, string, string], number: nu
     return `${number} ${forms[2]}`;
   }
 }
+
+export function overflowString(inputString: string, maxLength: number = 10) {
+  if (inputString.length <= maxLength) {
+    return inputString;
+  }
+
+  return inputString.slice(0, maxLength - 3) + '…';
+}

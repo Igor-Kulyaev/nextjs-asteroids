@@ -119,7 +119,7 @@ export default function AsteroidsList({asteroids, setAsteroidOrders}: IAsteroids
             <Spinner />
           </div>
         )}
-        <div ref={observerLastItemRef as MutableRefObject<HTMLDivElement | null>} style={{ height: "25px", width: "25px"}} />
+        <div ref={observerLastItemRef as MutableRefObject<HTMLDivElement | null>} style={{ height: "10px", width: "100px"}} />
       </div>
     </>
   )

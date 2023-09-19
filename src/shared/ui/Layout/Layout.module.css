@@ -15,3 +15,10 @@
     flex: 1; /* Allow the main content to take up the remaining space */
     padding: 20px; /* Example padding for the main content */
 }
+
+@media screen and (max-width: 750px) {
+    .asideLayout {
+        flex: 0 0 auto; /* Allow the aside to have a fixed width */
+        width: 90px;
+    }
+}

@@ -9,14 +9,14 @@ export const Layout = ({children}: {children: ReactNode}) => {
   return (
     <div className={cls.layout}>
       <Header />
-        <div className={cls.layoutContainer}>
-          <aside className={cls.asideLayout}>
-              <PlanetImage />
-          </aside>
-          <main className={cls.mainLayout}>
-            {children}
-          </main>
-        </div>
+      <div className={cls.layoutContainer}>
+        <aside className={cls.asideLayout}>
+          <PlanetImage />
+        </aside>
+        <main className={cls.mainLayout}>
+          {children}
+        </main>
+      </div>
     </div>
   );
 };

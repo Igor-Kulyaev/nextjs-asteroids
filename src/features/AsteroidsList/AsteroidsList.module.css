@@ -33,5 +33,15 @@
 .spinnerWrapper {
     display: flex;
     justify-content: center;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
+}
+
+@media screen and (max-width: 500px) {
+    .asteroidsListTitle {
+        width: 350px;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 36px;
+        margin-bottom: 8px;
+    }
 }

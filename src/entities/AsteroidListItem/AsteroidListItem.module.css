@@ -87,3 +87,17 @@
     line-height: 20px;
     margin-left: 10px;
 }
+
+@media screen and (max-width: 500px) {
+    .asteroidWrapper {
+        width: 300px;
+        margin-bottom: 24px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .asteroidWrapper {
+        width: 250px;
+        margin-bottom: 24px;
+    }
+}
