@@ -20,7 +20,7 @@ export const convertDateToRusLocale = (
   return date.toLocaleDateString('ru-RU', options);
 };
 
-export const formatIntegerToRussianLocale = (number: number) => {
+export const formatIntegerToRusLocale = (number: number) => {
   const roundedNumber = Math.round(number);
   const formatter = new Intl.NumberFormat('ru-RU');
   return formatter.format(roundedNumber);
@@ -36,5 +36,18 @@ export function formatLunarDistancePluralRus (number: number) {
   ]);
 
   const pluralForm = pluralRules.select(number);
-  return `${formatIntegerToRussianLocale(number)} ${forms.get(pluralForm)}`;
+  return `${formatIntegerToRusLocale(number)} ${forms.get(pluralForm)}`;
+}
+
+export function makeRusPluralization(forms: [string, string, string], number: number): string {
+  const lastDigit = number % 10;
+  const lastTwoDigits = number % 100;
+
+  if (lastDigit === 1 && lastTwoDigits !== 11) {
+    return `${number} ${forms[0]}`;
+  } else if ([2, 3, 4].includes(lastDigit) && ![12, 13, 14].includes(lastTwoDigits)) {
+    return `${number} ${forms[1]}`;
+  } else {
+    return `${number} ${forms[2]}`;
+  }
 }

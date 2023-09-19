@@ -1,7 +1,7 @@
 export interface IEstimatedDiameterMinMax {
   "estimated_diameter_min": number;
   "estimated_diameter_max": number;
-};
+}
 
 export interface IEstimatedDiameter {
   "kilometers": IEstimatedDiameterMinMax;
@@ -26,4 +26,9 @@ export interface ICloseApproachDataItem {
     "miles": string;
   };
   "orbiting_body": string;
+}
+
+export enum DistanceSelector {
+  Kilometers = "km",
+  Lunar = "lunar",
 }
