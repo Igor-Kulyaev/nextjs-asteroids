@@ -18,8 +18,8 @@ const Error = () => {
         <title>Not found page</title>
       </Head>
       <div className={styles.notFoundContainer}>
-        <h1 className={styles.notFoundTitle}>Oops... Nothing was found.</h1>
-        <p className={styles.notFoundMessage}>Try going back to the homepage and look for something else.</p>
+        <h1 className={styles.notFoundTitle}>Упс... Ничего не найдено.</h1>
+        <p className={styles.notFoundMessage}>Попробуйте вернуться на главную страницу и поискать что-нибудь еще.</p>
       </div>
     </div>
   )
