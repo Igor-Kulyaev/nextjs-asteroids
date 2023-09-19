@@ -24,7 +24,6 @@ export default function AsteroidsList({
   const [todayDateKey] = Object.keys(asteroids.near_earth_objects);
   const asteroidsList = asteroids.near_earth_objects[todayDateKey];
 
-  // const [distanceSelector, setDistanceSelector] = useState<DistanceSelector>(DistanceSelector.Kilometers);
   const setKilometersDistance = () => setDistanceSelector(DistanceSelector.Kilometers);
   const setLunarDistance = () => setDistanceSelector(DistanceSelector.Lunar);
 
