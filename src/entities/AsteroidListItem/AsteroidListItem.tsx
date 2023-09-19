@@ -8,8 +8,16 @@ import {
   formatLunarDistancePluralRus,
   makeRusPluralization, overflowString
 } from "@/src/shared/utils/utils";
+import {DistanceSelector} from "@/src/models/sharedModel";
 
-export const AsteroidListItem = ({asteroid, setOrders, distanceSelector}: {asteroid: IAsteroidListItem; setOrders: Dispatch<SetStateAction<IAsteroidListItem[]>>, distanceSelector: "km" | "lunar"}) => {
+export interface IAsteroidListItemProps {
+  asteroid: IAsteroidListItem;
+  setOrders: Dispatch<SetStateAction<IAsteroidListItem[]>>;
+  distanceSelector: DistanceSelector;
+  isSent?: boolean;
+}
+
+export const AsteroidListItem = ({asteroid, setOrders, distanceSelector, isSent = false}: IAsteroidListItemProps) => {
   const [isOrdered, setIsOrdered] = useState(false);
 
   const kmToEarth = `${formatIntegerToRusLocale(parseFloat(asteroid.close_approach_data[0].miss_distance.kilometers))} км`;
@@ -43,26 +51,49 @@ export const AsteroidListItem = ({asteroid, setOrders, distanceSelector}: {aster
         </div>
       </div>
       <div className={styles.asteroidActions}>
-        {isOrdered
-          ? (<button
-              className={`${styles.asteroidActionBtn} ${styles.unorderAsteroidBtn}`}
-              onClick={() => {
-                setIsOrdered(false);
-                setOrders((prev) => [...prev.filter((elem) => elem.id !== asteroid.id)]);
-              }}
-            >
-            В корзине
-          </button>)
-          : (<button
-              className={`${styles.asteroidActionBtn} ${styles.orderAsteroidBtn}`}
-              onClick={() => {
-              setIsOrdered(true);
-              setOrders((prev) => [...prev, asteroid]);
-            }}>
-              Заказать
-            </button>
+        {!isSent && (
+          isOrdered
+            ? (
+              <button
+                className={`${styles.asteroidActionBtn} ${styles.unorderAsteroidBtn}`}
+                onClick={() => {
+                  setIsOrdered(false);
+                  setOrders((prev) => [...prev.filter((elem) => elem.id !== asteroid.id)]);
+                }}
+              >
+                В корзине
+            </button>)
+            : (
+              <button
+                className={`${styles.asteroidActionBtn} ${styles.orderAsteroidBtn}`}
+                onClick={() => {
+                  setIsOrdered(true);
+                  setOrders((prev) => [...prev, asteroid]);
+                }}>
+                Заказать
+              </button>
             )
-        }
+        )}
+        {/*{isOrdered*/}
+        {/*  ? (<button*/}
+        {/*      className={`${styles.asteroidActionBtn} ${styles.unorderAsteroidBtn}`}*/}
+        {/*      onClick={() => {*/}
+        {/*        setIsOrdered(false);*/}
+        {/*        setOrders((prev) => [...prev.filter((elem) => elem.id !== asteroid.id)]);*/}
+        {/*      }}*/}
+        {/*    >*/}
+        {/*    В корзине*/}
+        {/*  </button>)*/}
+        {/*  : (<button*/}
+        {/*      className={`${styles.asteroidActionBtn} ${styles.orderAsteroidBtn}`}*/}
+        {/*      onClick={() => {*/}
+        {/*      setIsOrdered(true);*/}
+        {/*      setOrders((prev) => [...prev, asteroid]);*/}
+        {/*    }}>*/}
+        {/*      Заказать*/}
+        {/*    </button>*/}
+        {/*    )*/}
+        {/*}*/}
         {asteroid.is_potentially_hazardous_asteroid && (
           <div className={styles.dangerousAsteroid}>⚠️ Опасен</div>
         )}

@@ -1,9 +1,9 @@
-.asteroidsListWrapper {
+.ordersListWrapper {
     overflow-y: auto;
     padding-right: 20px;
 }
 
-.asteroidsListTitle {
+.ordersListTitle {
     width: 400px;
     font-size: 28px;
     font-weight: 700;
@@ -37,7 +37,7 @@
 }
 
 @media screen and (max-width: 500px) {
-    .asteroidsListTitle {
+    .ordersListTitle {
         width: 350px;
         font-size: 28px;
         font-weight: 700;
