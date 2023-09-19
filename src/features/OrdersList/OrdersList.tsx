@@ -1,8 +1,5 @@
-import {IAsteroidListItem, IAsteroidsList} from "@/src/models/asteroidsListModel";
-import {Dispatch, MutableRefObject, SetStateAction, useEffect, useRef, useState} from "react";
+import {IAsteroidListItem} from "@/src/models/asteroidsListModel";
 import {AsteroidListItem} from "@/src/entities/AsteroidListItem/AsteroidListItem";
-import {Spinner} from "@/src/shared/ui/Spinner/Spinner";
-import {DistanceSelector} from "@/src/models/sharedModel";
 import styles from "./OrdersList.module.css"
 import {useAsteroidOrders} from "@/src/hooks/useAsteroidOrders";
 

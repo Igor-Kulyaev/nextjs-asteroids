@@ -1,25 +1,18 @@
 import { format } from 'date-fns';
 import {addUrlParams} from "@/src/shared/utils/utils";
-import {IAsteroidListItem, IAsteroidsList} from "@/src/models/asteroidsListModel";
-import {Dispatch, SetStateAction, useEffect, useState} from "react";
+import {IAsteroidsList} from "@/src/models/asteroidsListModel";
 import AsteroidsList from "@/src/features/AsteroidsList/AsteroidsList";
 import {AsteroidsCart} from "@/src/features/AsteroidsCart/AsteroidsCart";
 import {oneHour} from "@/src/shared/constants/constants";
 import {useAsteroidOrders} from "@/src/hooks/useAsteroidOrders";
 
 export default function Home({asteroids}: {asteroids: IAsteroidsList}) {
-  // const [asteroidOrders, setAsteroidOrders] = useState<IAsteroidListItem[]>([]);
-
   const {
     asteroidOrders,
     setAsteroidOrders,
     distanceSelector,
     setDistanceSelector
   } = useAsteroidOrders();
-
-  // useEffect(() => {
-  //   setAsteroidOrders([]);
-  // }, []);
 
   return (
     <>

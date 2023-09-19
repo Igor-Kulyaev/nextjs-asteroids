@@ -5,8 +5,7 @@ import Image from "next/image";
 import {
   convertDateToRusLocale,
   formatIntegerToRusLocale,
-  formatLunarDistancePluralRus,
-  makeRusPluralization, overflowString
+  makeRusPluralization,
 } from "@/src/shared/utils/utils";
 import {DistanceSelector} from "@/src/models/sharedModel";
 
@@ -21,7 +20,6 @@ export const AsteroidListItem = ({asteroid, setOrders, distanceSelector, isSent 
   const [isOrdered, setIsOrdered] = useState(false);
 
   const kmToEarth = `${formatIntegerToRusLocale(parseFloat(asteroid.close_approach_data[0].miss_distance.kilometers))} км`;
-  // const lunarToEarth = formatLunarDistancePluralRus(Math.round(parseFloat(asteroid.close_approach_data[0].miss_distance.lunar)));
   const lunarToEarth = makeRusPluralization(['лунная орбита', 'лунные орбиты', 'лунных орбит'], Math.round(parseFloat(asteroid.close_approach_data[0].miss_distance.lunar)));
 
   return (
@@ -74,26 +72,6 @@ export const AsteroidListItem = ({asteroid, setOrders, distanceSelector, isSent 
               </button>
             )
         )}
-        {/*{isOrdered*/}
-        {/*  ? (<button*/}
-        {/*      className={`${styles.asteroidActionBtn} ${styles.unorderAsteroidBtn}`}*/}
-        {/*      onClick={() => {*/}
-        {/*        setIsOrdered(false);*/}
-        {/*        setOrders((prev) => [...prev.filter((elem) => elem.id !== asteroid.id)]);*/}
-        {/*      }}*/}
-        {/*    >*/}
-        {/*    В корзине*/}
-        {/*  </button>)*/}
-        {/*  : (<button*/}
-        {/*      className={`${styles.asteroidActionBtn} ${styles.orderAsteroidBtn}`}*/}
-        {/*      onClick={() => {*/}
-        {/*      setIsOrdered(true);*/}
-        {/*      setOrders((prev) => [...prev, asteroid]);*/}
-        {/*    }}>*/}
-        {/*      Заказать*/}
-        {/*    </button>*/}
-        {/*    )*/}
-        {/*}*/}
         {asteroid.is_potentially_hazardous_asteroid && (
           <div className={styles.dangerousAsteroid}>⚠️ Опасен</div>
         )}

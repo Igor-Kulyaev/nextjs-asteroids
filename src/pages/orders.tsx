@@ -1,7 +1,5 @@
-import AsteroidsList from "@/src/features/AsteroidsList/AsteroidsList";
 import {OrdersList} from "@/src/features/OrdersList/OrdersList";
 import {useAsteroidOrders} from "@/src/hooks/useAsteroidOrders";
-import {IAsteroidListItem} from "@/src/models/asteroidsListModel";
 import {useEffect, useState} from "react";
 import styles from "@/src/styles/Orders.module.css";
 

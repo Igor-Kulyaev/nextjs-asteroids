@@ -3,7 +3,6 @@ import {makeRusPluralization} from "@/src/shared/utils/utils";
 import styles from "./AsteroidsCart.module.css";
 import {useRouter} from "next/router";
 import {useState} from "react";
-import {Spinner} from "@/src/shared/ui/Spinner/Spinner";
 import {SmallSpinner} from "@/src/shared/ui/SmallSpinner/SmallSpinner";
 
 export const AsteroidsCart = ({asteroidOrders}: {asteroidOrders: IAsteroidListItem[]}) => {
