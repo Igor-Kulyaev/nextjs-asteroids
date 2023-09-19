@@ -32,3 +32,8 @@ export enum DistanceSelector {
   Kilometers = "km",
   Lunar = "lunar",
 }
+
+export enum ToastType {
+  Error = "error",
+  Notification = "notification",
+}

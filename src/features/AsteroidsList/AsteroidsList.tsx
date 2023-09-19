@@ -2,8 +2,10 @@ import {IAsteroidListItem, IAsteroidsList} from "@/src/models/asteroidsListModel
 import {Dispatch, MutableRefObject, SetStateAction, useEffect, useRef, useState} from "react";
 import {AsteroidListItem} from "@/src/entities/AsteroidListItem/AsteroidListItem";
 import {Spinner} from "@/src/shared/Spinner/Spinner";
-import {DistanceSelector} from "@/src/models/sharedModel";
+import {DistanceSelector, ToastType} from "@/src/models/sharedModel";
 import styles from "./AsteroidsList.module.css"
+import {Toast} from "@/src/shared/Toast/Toast";
+import {useToastError} from "@/src/hooks/useToastError";
 
 export interface IAsteroidsListProps {
   asteroids: IAsteroidsList;
@@ -24,7 +26,7 @@ export default function AsteroidsList({asteroids, setAsteroidOrders}: IAsteroids
   const nextPaginationUrl = useRef(nextPageLink);
   const observerLastItemRef = useRef<HTMLElement | null>(null);
 
-  const [newAsteroidsError, setNewAsteroidsError] = useState<string | null>(null);
+  const {toastError, setToastError} = useToastError();
 
   useEffect(() => {
     const getNewAsteroids = async () => {
@@ -45,7 +47,7 @@ export default function AsteroidsList({asteroids, setAsteroidOrders}: IAsteroids
         setNewAsteroids(oldState => [...oldState, ...asteroidsList]);
         nextPaginationUrl.current = nextPageLink;
       } catch (error) {
-        setNewAsteroidsError(typeof error === "string" ? error : (error as Record<string, any>).message);
+        setToastError(typeof error === "string" ? error : (error as Record<string, any>).message);
       } finally {
         setLoadingNewAsteroids(false);
       }
@@ -79,43 +81,46 @@ export default function AsteroidsList({asteroids, setAsteroidOrders}: IAsteroids
   }, [loadingNewAsteroids]);
 
   return (
-    <div className={styles.asteroidsListColumn}>
-      <h1 className={styles.asteroidsListTitle} >Ближайшие подлёты астероидов</h1>
-      <div className={styles.asteroidsDistanceButtonsWrapper}>
-        <button
-          className={`${styles.asteroidsDistanceBtn} ${distanceSelector === DistanceSelector.Kilometers && styles.asteroidsDistanceBtn_active}`}
-          onClick={setKilometersDistance}
-        >в километрах </button>
-        {" | "}
-        <button
-          className={`${styles.asteroidsDistanceBtn} ${distanceSelector === DistanceSelector.Lunar && styles.asteroidsDistanceBtn_active}`}
-          onClick={setLunarDistance}
-        > в лунных орбитах </button>
-      </div>
-      {!!asteroidsList.length && asteroidsList.map((asteroid) => {
-        return (
-          <AsteroidListItem
-            key={asteroid.id}
-            asteroid={asteroid}
-            setOrders={setAsteroidOrders}
-            distanceSelector={distanceSelector}/>
-        )
-      })}
-      {!!newAsteroids.length && newAsteroids.map((asteroid) => {
-        return(
-          <AsteroidListItem
-            key={asteroid.close_approach_data[0].close_approach_date + asteroid.id}
-            asteroid={asteroid}
-            setOrders={setAsteroidOrders}
-            distanceSelector={distanceSelector} />
-        )
-      })}
-      {loadingNewAsteroids && (
-        <div className={styles.spinnerWrapper}>
-          <Spinner />
+    <>
+      <Toast message={toastError} type={ToastType.Error}/>
+      <div className={styles.asteroidsListColumn}>
+        <h1 className={styles.asteroidsListTitle} >Ближайшие подлёты астероидов</h1>
+        <div className={styles.asteroidsDistanceButtonsWrapper}>
+          <button
+            className={`${styles.asteroidsDistanceBtn} ${distanceSelector === DistanceSelector.Kilometers && styles.asteroidsDistanceBtn_active}`}
+            onClick={setKilometersDistance}
+          >в километрах </button>
+          {" | "}
+          <button
+            className={`${styles.asteroidsDistanceBtn} ${distanceSelector === DistanceSelector.Lunar && styles.asteroidsDistanceBtn_active}`}
+            onClick={setLunarDistance}
+          > в лунных орбитах </button>
         </div>
-      )}
-      <div ref={observerLastItemRef as MutableRefObject<HTMLDivElement | null>} style={{ height: "25px"}} />
-    </div>
+        {!!asteroidsList.length && asteroidsList.map((asteroid) => {
+          return (
+            <AsteroidListItem
+              key={asteroid.id}
+              asteroid={asteroid}
+              setOrders={setAsteroidOrders}
+              distanceSelector={distanceSelector}/>
+          )
+        })}
+        {!!newAsteroids.length && newAsteroids.map((asteroid) => {
+          return(
+            <AsteroidListItem
+              key={asteroid.close_approach_data[0].close_approach_date + asteroid.id}
+              asteroid={asteroid}
+              setOrders={setAsteroidOrders}
+              distanceSelector={distanceSelector} />
+          )
+        })}
+        {loadingNewAsteroids && (
+          <div className={styles.spinnerWrapper}>
+            <Spinner />
+          </div>
+        )}
+        <div ref={observerLastItemRef as MutableRefObject<HTMLDivElement | null>} style={{ height: "25px", width: "25px"}} />
+      </div>
+    </>
   )
 }
