@@ -1,9 +1,9 @@
 import {ReactNode} from "react";
 import cls from "./Layout.module.css";
-import {Header} from "@/src/components/Header/Header";
+import {Header} from "@/src/shared/Header/Header";
 import Image from "next/image";
-import {PlanetImage} from "@/src/components/PlanetImage/PlanetImage";
-import {Cart} from "@/src/components/Cart/Cart";
+import {PlanetImage} from "@/src/shared/PlanetImage/PlanetImage";
+import {BigScreenCart} from "@/src/entities/Cart/BigScreenCart/BigScreenCart";
 
 export const Layout = ({children}: {children: ReactNode}) => {
   return (

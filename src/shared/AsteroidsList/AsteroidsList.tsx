@@ -1,5 +1,5 @@
 import styles from "./AsteroidsList.module.css";
-import {Cart} from "@/src/components/Cart/Cart";
+import {BigScreenCart} from "@/src/entities/Cart/BigScreenCart/BigScreenCart";
 
 export const AsteroidsList = ({asteroids}: {asteroids: any}) => {
   // console.log("asteroids", asteroids);

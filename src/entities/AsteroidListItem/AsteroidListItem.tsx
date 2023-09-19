@@ -2,13 +2,19 @@ import styles from "./AsteroidListItem.module.css";
 import {IAsteroidListItem} from "@/src/models/asteroidsListModel";
 import {Dispatch, SetStateAction, useState} from "react";
 import Image from "next/image";
-import {convertDateToRusLocale, formatIntegerToRussianLocale, formatLunarDistancePluralRus} from "@/src/utils/utils";
+import {
+  convertDateToRusLocale,
+  formatIntegerToRusLocale,
+  formatLunarDistancePluralRus,
+  makeRusPluralization
+} from "@/src/utils/utils";
 
 export const AsteroidListItem = ({asteroid, setOrders, distanceSelector}: {asteroid: IAsteroidListItem; setOrders: Dispatch<SetStateAction<IAsteroidListItem[]>>, distanceSelector: "km" | "lunar"}) => {
   const [isOrdered, setIsOrdered] = useState(false);
 
-  const kmToEarth = `${formatIntegerToRussianLocale(parseFloat(asteroid.close_approach_data[0].miss_distance.kilometers))} км`;
-  const lunarToEarth = formatLunarDistancePluralRus(Math.round(parseFloat(asteroid.close_approach_data[0].miss_distance.lunar)));
+  const kmToEarth = `${formatIntegerToRusLocale(parseFloat(asteroid.close_approach_data[0].miss_distance.kilometers))} км`;
+  // const lunarToEarth = formatLunarDistancePluralRus(Math.round(parseFloat(asteroid.close_approach_data[0].miss_distance.lunar)));
+  const lunarToEarth = makeRusPluralization(['лунная орбита', 'лунные орбиты', 'лунных орбит'], Math.round(parseFloat(asteroid.close_approach_data[0].miss_distance.lunar)));
 
   return (
     <div className={styles.asteroidWrapper}>
@@ -16,14 +22,14 @@ export const AsteroidListItem = ({asteroid, setOrders, distanceSelector}: {aster
       <div className={styles.asteroidGeneralInfo}>
         <div className={styles.asteroidDistanceToEarth}>
           {distanceSelector === "km" ? kmToEarth : lunarToEarth}
-          <Image src="/arrowDistance.png" alt="Distance to Earth" width={100} height={10} priority />
+          <Image src="/arrowDistance.png" alt="Distance to Earth" width={150} height={10} priority />
         </div>
         <div className={styles.asteroidDiameterWrapper}>
           <div className={styles.asteroidDiameterImg}>
             {asteroid.estimated_diameter.meters.estimated_diameter_max > 500 ? (
-              <Image src="/bigAsteroid.png" alt="Asteroid image" width={40} height={40} priority />
+              <Image src="/bigAsteroid.png" alt="Big asteroid" width={40} height={40} priority />
             ) : (
-              <Image src="/smallAsteroid.png" alt="Asteroid image" width={25} height={25} priority />
+              <Image src="/smallAsteroid.png" alt="Small asteroid" width={25} height={25} priority />
             )}
           </div>
           <div className={styles.asteroidAdditionalInfo}>
@@ -39,7 +45,7 @@ export const AsteroidListItem = ({asteroid, setOrders, distanceSelector}: {aster
       <div className={styles.asteroidActions}>
         {isOrdered
           ? (<button
-              className={styles.unorderAsteroid}
+              className={`${styles.asteroidActionBtn} ${styles.unorderAsteroidBtn}`}
               onClick={() => {
                 setIsOrdered(false);
                 setOrders((prev) => [...prev.filter((elem) => elem.id !== asteroid.id)]);
@@ -48,7 +54,7 @@ export const AsteroidListItem = ({asteroid, setOrders, distanceSelector}: {aster
             В корзине
           </button>)
           : (<button
-              className={styles.orderAsteroid}
+              className={`${styles.asteroidActionBtn} ${styles.orderAsteroidBtn}`}
               onClick={() => {
               setIsOrdered(true);
               setOrders((prev) => [...prev, asteroid]);
@@ -57,9 +63,9 @@ export const AsteroidListItem = ({asteroid, setOrders, distanceSelector}: {aster
             </button>
             )
         }
-        {asteroid.is_potentially_hazardous_asteroid && <div className={styles.dangerousAsteroid}>
-          ⚠️ Опасен
-          </div>}
+        {asteroid.is_potentially_hazardous_asteroid && (
+          <div className={styles.dangerousAsteroid}>⚠️ Опасен</div>
+        )}
       </div>
     </div>
   )

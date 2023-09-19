@@ -1,5 +1,5 @@
 .asteroidWrapper {
-    width: 300px;
+    width: 400px;
     margin-bottom: 24px;
 }
 
@@ -12,6 +12,7 @@
 
 .asteroidGeneralInfo {
     display: flex;
+    margin-bottom: 10px;
 }
 
 .asteroidDistanceToEarth {
@@ -51,10 +52,9 @@
 
 .asteroidActions {
     display: flex;
-    margin-top: 10px;
 }
 
-.orderAsteroid {
+.asteroidActionBtn {
     font-size: 11px;
     font-weight: 700;
     line-height: 20px;
@@ -63,25 +63,19 @@
     padding: 2px 11px 2px 11px;
     border-radius: 16px;
     gap: 2px;
-    background-color: var(--orange);
-    color: var(--white);
     border: none;
     text-transform: uppercase;
     cursor: pointer;
 }
 
-.unorderAsteroid {
-    font-size: 11px;
-    font-weight: 700;
-    line-height: 20px;
-    width: 90px;
-    height: 30px;
-    padding: 2px 11px 2px 11px;
-    border: none;
+.orderAsteroidBtn {
+    background-color: var(--orange);
+    color: var(--white);
+}
+
+.unorderAsteroidBtn {
     background-color: transparent;
     color: var(--light-orange);
-    text-transform: uppercase;
-    cursor: pointer;
 }
 
 .dangerousAsteroid {

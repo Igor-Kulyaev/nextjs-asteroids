@@ -1,7 +1,7 @@
-import cls from "./Cart.module.css";
+import cls from "./BigScreenCart.module.css";
 import {IAsteroidListItem} from "@/src/models/asteroidsListModel";
 
-export const Cart = ({asteroidOrders}: {asteroidOrders: IAsteroidListItem[]}) => {
+export const BigScreenCart = ({asteroidOrders}: {asteroidOrders: IAsteroidListItem[]}) => {
   return (
     <div className={cls.cartContainer}>
       <div className={cls.cartTop}>
