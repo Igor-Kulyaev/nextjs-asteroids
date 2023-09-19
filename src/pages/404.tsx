@@ -1,24 +1,25 @@
 import {useRouter} from "next/router";
 import {useEffect} from "react";
 import Head from "next/head";
+import styles from "@/src/styles/NotFoundPage.module.css";
 
-const Error = (props: any) => {
-  console.log('props', props);
+const Error = () => {
   const router = useRouter();
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     router.push('/');
-  //   }, 3000);
-  // }, [router]);
+  useEffect(() => {
+    setTimeout(() => {
+      router.push('/');
+    }, 3000);
+  }, [router]);
 
   return (
     <div>
       <Head>
-        <title>Error</title>
+        <title>Not found page</title>
       </Head>
-      <div>
-        <h1>Error occurred</h1>
+      <div className={styles.notFoundContainer}>
+        <h1 className={styles.notFoundTitle}>Oops... Nothing was found.</h1>
+        <p className={styles.notFoundMessage}>Try going back to the homepage and look for something else.</p>
       </div>
     </div>
   )
