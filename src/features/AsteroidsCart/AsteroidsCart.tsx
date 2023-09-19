@@ -1,5 +1,5 @@
 import {IAsteroidListItem} from "@/src/models/asteroidsListModel";
-import {makeRusPluralization} from "@/src/utils/utils";
+import {makeRusPluralization} from "@/src/shared/utils/utils";
 import styles from "./AsteroidsCart.module.css";
 
 export const AsteroidsCart = ({asteroidOrders}: {asteroidOrders: IAsteroidListItem[]}) => {

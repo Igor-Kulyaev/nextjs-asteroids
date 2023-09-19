@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-import {addUrlParams} from "@/src/utils/utils";
+import {addUrlParams} from "@/src/shared/utils/utils";
 import {IAsteroidListItem, IAsteroidsList} from "@/src/models/asteroidsListModel";
 import {useState} from "react";
 import {BigScreenCart} from "@/src/entities/Cart/BigScreenCart/BigScreenCart";
@@ -7,6 +7,7 @@ import styles from "@/src/styles/Home.module.css";
 import AsteroidsList from "@/src/features/AsteroidsList/AsteroidsList";
 import {SmallScreenCart} from "@/src/entities/Cart/SmallScreenCart/SmallScreenCart";
 import {AsteroidsCart} from "@/src/features/AsteroidsCart/AsteroidsCart";
+import {oneHour} from "@/src/shared/constants/constants";
 
 export default function Home({asteroids}: {asteroids: IAsteroidsList}) {
   const [asteroidOrders, setAsteroidOrders] = useState<IAsteroidListItem[]>([]);
@@ -60,6 +61,7 @@ export const getStaticProps = async () => {
       props: {
         asteroids: data,
       },
+      revalidate: oneHour,
     }
   } catch (error) {
     return {

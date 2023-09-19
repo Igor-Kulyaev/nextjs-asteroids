@@ -1,7 +1,7 @@
 import '@/src/styles/reset.css'
 import '@/src/styles/globals.css'
 import type { AppProps } from 'next/app'
-import {Layout} from "@/src/shared/Layout/Layout";
+import {Layout} from "@/src/shared/ui/Layout/Layout";
 import Head from "next/head";
 
 export default function App({ Component, pageProps }: AppProps) {

@@ -7,7 +7,7 @@ import {
   formatIntegerToRusLocale,
   formatLunarDistancePluralRus,
   makeRusPluralization
-} from "@/src/utils/utils";
+} from "@/src/shared/utils/utils";
 
 export const AsteroidListItem = ({asteroid, setOrders, distanceSelector}: {asteroid: IAsteroidListItem; setOrders: Dispatch<SetStateAction<IAsteroidListItem[]>>, distanceSelector: "km" | "lunar"}) => {
   const [isOrdered, setIsOrdered] = useState(false);
