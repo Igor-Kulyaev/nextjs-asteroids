@@ -1,0 +1,72 @@
+.asteroidsListWrapper {
+    padding-right: 20px;
+}
+
+.asteroidsListTitle {
+    width: 400px;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 36px;
+    margin-bottom: 8px;
+}
+
+.asteroidsDistanceButtonsWrapper {
+    margin-bottom: 24px;
+}
+
+.asteroidsDistanceBtn {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    background-color: transparent;
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+}
+
+.asteroidsDistanceBtn_active {
+    font-weight: 700;
+    border-bottom: 1px solid var(--white);
+}
+
+.spinnerWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 75px;
+}
+
+/* Customize scrollbar for WebKit-based browsers (Chrome, Safari) */
+.custom-scrollbar-virtualized-list::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar track */
+}
+
+.custom-scrollbar-virtualized-list::-webkit-scrollbar-thumb {
+    background: var(--orange); /* Color of the scrollbar thumb */
+    border-radius: 6px; /* Rounded corners for the scrollbar thumb */
+}
+
+.custom-scrollbar-virtualized-list::-webkit-scrollbar-track {
+    background: var(--grey); /* Color of the scrollbar track */
+}
+
+.custom-scrollbar-virtualized-list::-webkit-scrollbar-thumb:hover {
+    background: var(--grey); /* Color of the thumb on hover */
+}
+
+.custom-scrollbar-virtualized-list::-webkit-scrollbar-track-piece:start {
+    background: transparent; /* Adjust the background as needed */
+}
+
+.custom-scrollbar-virtualized-list::-webkit-scrollbar-track-piece:end {
+    background: transparent; /* Adjust the background as needed */
+}
+
+@media screen and (max-width: 500px) {
+    .asteroidsListTitle {
+        width: 350px;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 36px;
+        margin-bottom: 8px;
+    }
+}
