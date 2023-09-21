@@ -1,7 +1,7 @@
 import {IAsteroidsList} from "@/src/models/asteroidsListModel";
 import {format} from "date-fns";
 import {addUrlParams} from "@/src/shared/utils/utils";
-import {oneHour} from "@/src/shared/constants/constants";
+import {oneHourInSeconds} from "@/src/shared/constants/constants";
 import {useAsteroidOrders} from "@/src/hooks/useAsteroidOrders";
 import {AsteroidsCart} from "@/src/features/AsteroidsCart/AsteroidsCart";
 import VirtualizedAsteroidsList from "@/src/features/VirtualizedAsteroidsList/VirtualizedAsteroidsList";
@@ -52,7 +52,7 @@ export const getStaticProps = async () => {
       props: {
         asteroids: data,
       },
-      revalidate: oneHour,
+      revalidate: oneHourInSeconds,
     }
   } catch (error) {
     return {

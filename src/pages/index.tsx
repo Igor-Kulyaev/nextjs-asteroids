@@ -3,7 +3,7 @@ import {addUrlParams} from "@/src/shared/utils/utils";
 import {IAsteroidsList} from "@/src/models/asteroidsListModel";
 import AsteroidsList from "@/src/features/AsteroidsList/AsteroidsList";
 import {AsteroidsCart} from "@/src/features/AsteroidsCart/AsteroidsCart";
-import {oneHour} from "@/src/shared/constants/constants";
+import {oneHourInSeconds} from "@/src/shared/constants/constants";
 import {useAsteroidOrders} from "@/src/hooks/useAsteroidOrders";
 
 export default function Home({asteroids}: {asteroids: IAsteroidsList}) {
@@ -52,7 +52,7 @@ export const getStaticProps = async () => {
       props: {
         asteroids: data,
       },
-      revalidate: oneHour,
+      revalidate: oneHourInSeconds,
     }
   } catch (error) {
     return {
