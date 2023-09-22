@@ -1,21 +1,6 @@
 import {DataGrid, GridColDef, GridRowsProp} from '@mui/x-data-grid';
 
-const rows: GridRowsProp = [
-  { id: 1, col1: 'Hello', col2: 'World' },
-  { id: 2, col1: 'DataGridPro', col2: 'is Awesome' },
-  { id: 3, col1: 'MUI', col2: 'is Amazing fdsf' },
-  { id: 4, col1: 'MUI', col2: 'is Amazing fdsfdsf' },
-  { id: 5, col1: 'MUI', col2: 'is Amazing fdsf' },
-  { id: 6, col1: 'MUI', col2: 'is Amazing fds' },
-  { id: 7, col1: 'MUI', col2: 'is Amazing f' },
-];
-
-const columns: GridColDef[] = [
-  { field: 'col1', headerName: 'Column 1', width: 150 },
-  { field: 'col2', headerName: 'Column 2', width: 150 },
-];
-
-export default function GridTable({rows, columns}: {rows: GridRowsProp, columns: GridColDef[]}) {
+export default function Table({rows, columns}: {rows: GridRowsProp, columns: GridColDef[]}) {
   return (
     <div style={{ height: 650, width: "100%", backgroundColor: "white", color: "black", overflowX: "auto" }}>
       <DataGrid

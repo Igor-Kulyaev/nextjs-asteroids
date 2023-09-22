@@ -4,7 +4,7 @@ import {addUrlParams} from "@/src/shared/utils/utils";
 import {oneHourInSeconds} from "@/src/shared/constants/constants";
 import {IAsteroidListItem} from "@/src/models/asteroidsListModel";
 import {IAsteroid} from "@/src/models/asteroidModel";
-import {GetStaticProps, GetStaticPropsContext} from "next";
+import {GetServerSideProps, GetServerSidePropsContext, GetStaticProps, GetStaticPropsContext} from "next";
 import {AsteroidDetails} from "@/src/features/AsteroidDetails/AsteroidDetails";
 
 export default function Asteroid({asteroid}: {asteroid: IAsteroid}) {
@@ -89,3 +89,35 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
     };
   }
 }
+
+// Define the new `getServerSideProps` function
+// export const getServerSideProps: GetServerSideProps = async (context: GetServerSidePropsContext) => {
+//   const asteroidId = context.params?.id as string;
+//
+//   // Fetch asteroid data based on the provided ID
+//   const urlWithParams = addUrlParams(`${process.env.API_URL as string}/neo/${asteroidId}`, {
+//     api_key: process.env.API_KEY as string,
+//   });
+//
+//   try {
+//     const response = await fetch(urlWithParams);
+//
+//     if (response.status !== 200) {
+//       return {
+//         notFound: true,
+//       };
+//     }
+//
+//     const data = await response.json();
+//
+//     return {
+//       props: {
+//         asteroid: data,
+//       },
+//     };
+//   } catch (error) {
+//     return {
+//       notFound: true,
+//     };
+//   }
+// };
