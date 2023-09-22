@@ -22,7 +22,7 @@ export const AsteroidAllDetails = ({asteroid}: {asteroid: IAsteroid}) => {
         </div>
         {asteroid?.close_approach_data && asteroid?.close_approach_data.map((date) => {
           return (
-            <div className={styles.approachItemWrapper}>
+            <div className={styles.approachItemWrapper} key={date.close_approach_date_full}>
               <div className={styles.approachDateTime}>{convertDateTimeToRusLocale(date.close_approach_date_full)}</div>
               <div className={styles.approachVelocity}>{convertStringToRoundedNumber(date.relative_velocity.kilometers_per_second, 2)} км/с</div>
               <div className={styles.approachDistance}>{formatIntegerToRusLocale(convertStringToRoundedNumber(date.miss_distance.kilometers, 0))} км</div>
