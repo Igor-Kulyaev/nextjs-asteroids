@@ -90,3 +90,7 @@ export const convertStringToRoundedNumber = (inputString: string, decimalPlaces 
 
   return Number(parsedNumber.toFixed(decimalPlaces));
 };
+
+export const convertHttpToHttpsString = (httpString: string) => {
+  return httpString.replace(/^http:/, "https:");
+}
