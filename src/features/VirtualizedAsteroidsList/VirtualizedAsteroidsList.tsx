@@ -7,6 +7,7 @@ import {Toast} from "@/src/shared/ui/Toast/Toast";
 import styles from "./VirtualizedAsteroidsList.module.css";
 import {AsteroidListItem} from "@/src/entities/AsteroidListItem/AsteroidListItem";
 import {Spinner} from "@/src/shared/ui/Spinner/Spinner";
+import {convertHttpToHttpsString} from "@/src/shared/utils/utils";
 
 const VirtualizedSpinner = () => {
   return (
@@ -35,7 +36,7 @@ export default function VirtualizedAsteroidsList({
  setDistanceSelector
 }: IAsteroidsListProps) {
 
-  const nextPageLink = asteroids.links.next;
+  const nextPageLink = convertHttpToHttpsString(asteroids.links.next);
   const [todayDateKey] = Object.keys(asteroids.near_earth_objects);
   const asteroidsList = asteroids.near_earth_objects[todayDateKey];
 
@@ -57,7 +58,7 @@ export default function VirtualizedAsteroidsList({
 
       const data = await result.json();
 
-      const nextPageLink = data.links.next;
+      const nextPageLink = convertHttpToHttpsString(data.links.next);
       const [todayDateKey] = Object.keys(data.near_earth_objects);
       const asteroidsList = data.near_earth_objects[todayDateKey];
 
