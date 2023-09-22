@@ -31,7 +31,7 @@ export const getStaticProps = async () => {
   const now = new Date();
   const formattedDate = format(now, 'yyyy-MM-dd');
 
-  const urlWithParams = addUrlParams(process.env.API_URL as string, {
+  const urlWithParams = addUrlParams(`${process.env.API_URL}/feed`, {
     start_date: formattedDate,
     end_date: formattedDate,
     api_key: process.env.API_KEY as string,
