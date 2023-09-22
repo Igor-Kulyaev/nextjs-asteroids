@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app'
 import {Layout} from "@/src/shared/ui/Layout/Layout";
 import Head from "next/head";
 import {AsteroidOrdersProvider} from "@/src/providers/AsteroidOrdersContext/AsteroidOrderProvider";
+import NextNProgress from 'nextjs-progressbar';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -15,6 +16,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <AsteroidOrdersProvider>
+        <NextNProgress height={8} color={"rgb(227,108,28)"}/>
         <Layout>
           <Component {...pageProps} />
         </Layout>
