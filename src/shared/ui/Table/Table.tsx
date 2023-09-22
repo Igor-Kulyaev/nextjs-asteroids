@@ -9,6 +9,9 @@ export default function Table({rows, columns}: {rows: GridRowsProp, columns: Gri
         getRowId={(row) => row.close_approach_date_full}
         disableColumnMenu
         sx={{
+          "&.MuiDataGrid-root .MuiDataGrid-virtualScrollerContent": {
+            backgroundColor: "#232526",
+          },
           "&.MuiDataGrid-root .MuiDataGrid-cell:focus-within": {
             outline: "none !important",
           },
