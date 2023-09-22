@@ -6,6 +6,7 @@ import {DistanceSelector, ToastType} from "@/src/models/sharedModel";
 import styles from "./AsteroidsList.module.css"
 import {Toast} from "@/src/shared/ui/Toast/Toast";
 import {useToastError} from "@/src/hooks/useToastError";
+import {convertHttpToHttpsString} from "@/src/shared/utils/utils";
 
 export interface IAsteroidsListProps {
   asteroids: IAsteroidsList;
@@ -20,7 +21,7 @@ export default function AsteroidsList({
   distanceSelector,
   setDistanceSelector
 }: IAsteroidsListProps) {
-  const nextPageLink = asteroids.links.next;
+  const nextPageLink = convertHttpToHttpsString(asteroids.links.next);
   const [todayDateKey] = Object.keys(asteroids.near_earth_objects);
   const asteroidsList = asteroids.near_earth_objects[todayDateKey];
 
@@ -46,7 +47,7 @@ export default function AsteroidsList({
 
         const data = await result.json();
 
-        const nextPageLink = data.links.next;
+        const nextPageLink = convertHttpToHttpsString(data.links.next);
         const [todayDateKey] = Object.keys(data.near_earth_objects);
         const asteroidsList = data.near_earth_objects[todayDateKey];
 
