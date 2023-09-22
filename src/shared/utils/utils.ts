@@ -20,6 +20,27 @@ export const convertDateToRusLocale = (
   return date.toLocaleDateString('ru-RU', options);
 };
 
+export const convertDateTimeToRusLocale = (inputDateTime: string) => {
+  const timestamp = Date.parse(inputDateTime);
+
+  if (isNaN(timestamp)) {
+    // Handle invalid input
+    return 'Invalid Date';
+  }
+
+  const date = new Date(timestamp);
+
+  const options: Intl.DateTimeFormatOptions = {
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  };
+
+  return date.toLocaleString('ru-RU', options);
+};
+
 export const formatIntegerToRusLocale = (number: number) => {
   const roundedNumber = Math.round(number);
   const formatter = new Intl.NumberFormat('ru-RU');
@@ -59,3 +80,13 @@ export function overflowString(inputString: string, maxLength: number = 10) {
 
   return inputString.slice(0, maxLength - 3) + '…';
 }
+
+export const convertStringToRoundedNumber = (inputString: string, decimalPlaces = 2) => {
+  const parsedNumber = parseFloat(inputString);
+
+  if (isNaN(parsedNumber)) {
+    return NaN;
+  }
+
+  return Number(parsedNumber.toFixed(decimalPlaces));
+};
