@@ -5,6 +5,8 @@ import AsteroidsList from "@/src/features/AsteroidsList/AsteroidsList";
 import {AsteroidsCart} from "@/src/features/AsteroidsCart/AsteroidsCart";
 import {oneHourInSeconds} from "@/src/shared/constants/constants";
 import {useAsteroidOrders} from "@/src/hooks/useAsteroidOrders";
+import {useRouter} from "next/router";
+import {useEffect} from "react";
 
 export default function Home({asteroids}: {asteroids: IAsteroidsList}) {
   const {
@@ -13,6 +15,24 @@ export default function Home({asteroids}: {asteroids: IAsteroidsList}) {
     distanceSelector,
     setDistanceSelector
   } = useAsteroidOrders();
+
+  const router = useRouter();
+
+  // Clear the asteroidOrders state when leaving the home page, except when going to /orders
+  useEffect(() => {
+    const handleRouteChange = (url: string) => {
+      if (!url.includes('/orders')) {
+        setAsteroidOrders([]);
+      }
+    };
+
+    router.events.on('routeChangeStart', handleRouteChange);
+
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange);
+    };
+  }, [setAsteroidOrders, router]);
+
 
   return (
     <>
