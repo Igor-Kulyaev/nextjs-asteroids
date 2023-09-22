@@ -1,0 +1,22 @@
+.asteroidWrapper {
+    width: 100%;
+}
+
+.asteroidTitle {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 36px;
+    margin-bottom: 20px;
+}
+
+.asteroidTableWrapper {
+    width: 100%;
+}
+
+.asteroidTableName {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: center;
+}
