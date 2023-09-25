@@ -33,7 +33,7 @@ export default function AsteroidsList({
   const nextPaginationUrl = useRef(nextPageLink);
   const observerLastItemRef = useRef<HTMLElement | null>(null);
 
-  const {toastError, setToastError} = useToastError();
+  const {toastMessage: toastError, setToastMessage: setToastError} = useToastError();
 
   useEffect(() => {
     const getNewAsteroids = async () => {
@@ -69,9 +69,9 @@ export default function AsteroidsList({
         }
       },
       {
-        root: null, // Use the viewport as the root
+        root: null,
         rootMargin: '0px',
-        threshold: 1.0, // Trigger when the element is fully visible
+        threshold: 1.0,
       }
     );
 
@@ -79,7 +79,6 @@ export default function AsteroidsList({
       observer.observe(observerLastItemRef.current);
     }
 
-    // Cleanup the observer when unmounting
     return () => {
       if (observerLastItemRef.current) {
         observer.unobserve(observerLastItemRef.current);

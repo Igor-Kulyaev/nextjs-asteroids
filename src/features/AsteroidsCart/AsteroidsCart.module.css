@@ -47,12 +47,12 @@
 
 @media screen and (max-width: 900px) {
     .cartContainer {
-        width: 100%; /* Use the full width of the screen */
-        bottom: 0; /* Position at the bottom */
-        top: auto; /* Remove top positioning */
-        right: 0; /* Reset right positioning */
-        left: 0; /* Use the full width of the screen */
-        padding: 16px; /* Add some padding for spacing */
+        width: 100%;
+        bottom: 0;
+        top: auto;
+        right: 0;
+        left: 0;
+        padding: 16px;
         flex-direction: row;
         border-radius: 0;
     }

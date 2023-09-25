@@ -36,7 +36,6 @@ export default function Table({rows, columns}: {rows: GridRowsProp, columns: Gri
         columns={columns}
         getRowId={(row) => row.close_approach_date_full}
         disableColumnMenu
-        className={`${styles["MuiDataGrid-root"]} ${styles["MuiDataGrid-virtualScrollerContent"]} ${styles["MuiDataGrid-cell"]} ${styles["MuiDataGrid-columnHeader"]} ${styles["MuiDataGrid-row"]} ${styles["MuiDataGrid-columnHeaders"]} ${styles["MuiDataGrid-footerContainer"]} ${styles["MuiDataGrid-cell"]}`}
         sx={tableCSS}
         initialState={{
           pagination: {

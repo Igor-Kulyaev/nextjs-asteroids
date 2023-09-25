@@ -1,17 +1,17 @@
 import {ReactNode} from "react";
-import cls from "./Layout.module.css";
+import styles from "./Layout.module.css";
 import {Header} from "@/src/shared/ui/Header/Header";
 import {PlanetImage} from "@/src/shared/ui/PlanetImage/PlanetImage";
 
 export const Layout = ({children}: {children: ReactNode}) => {
   return (
-    <div className={cls.layout}>
+    <div>
       <Header />
-      <div className={cls.layoutContainer}>
-        <aside className={cls.asideLayout}>
+      <div className={styles.layoutContainer}>
+        <aside className={styles.asideLayout}>
           <PlanetImage />
         </aside>
-        <main className={cls.mainLayout}>
+        <main className={styles.mainLayout}>
           {children}
         </main>
       </div>

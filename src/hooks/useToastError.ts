@@ -1,16 +1,16 @@
 import {useEffect, useState} from "react";
 
 export const useToastError = (delayClosure = 2500) => {
-  const [toastError, setToastError] = useState<string>("");
+  const [toastMessage, setToastMessage] = useState<string>("");
 
   useEffect(() => {
-    if (toastError) {
-      setTimeout(() => setToastError(""), delayClosure);
+    if (toastMessage) {
+      setTimeout(() => setToastMessage(""), delayClosure);
     }
-  }, [toastError]);
+  }, [toastMessage]);
 
   return {
-    toastError,
-    setToastError
+    toastMessage,
+    setToastMessage
   }
 }

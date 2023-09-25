@@ -10,10 +10,8 @@ describe('addUrlParams', () => {
       param1: 'value1',
       param2: 'value2',
     };
-
     const result = addUrlParams(url, queryParams);
 
-    // Check if the result includes the query parameters
     expect(result).toContain('param1=value1');
     expect(result).toContain('param2=value2');
   });
@@ -21,111 +19,70 @@ describe('addUrlParams', () => {
   test('should handle empty query parameters', () => {
     const url = 'https://example.com';
     const queryParams = {};
-
     const result = addUrlParams(url, queryParams);
 
-    // Check if the result is the same as the original URL
     expect(result).toBe(`${url}?`);
   });
 });
 
 describe('convertDateToRusLocale', () => {
   test('should convert a date to Russian locale format', () => {
-    // Input date in a known format (e.g., '2023-09-30')
     const inputDate = '2023-09-30';
-
-    // Expected output in Russian locale format
     const expectedOutput = '30 сент. 2023 г.';
-
-    // Call the function with the input date
     const result = convertDateToRusLocale(inputDate);
 
-    // Check if the result matches the expected output
     expect(result).toBe(expectedOutput);
   });
-
-  // Add more test cases as needed
 });
 
 describe('convertDateTimeToRusLocale', () => {
   test('should convert a date and time to Russian locale format', () => {
-    // Input date and time in a known format (e.g., '1918-Sep-17 15:25')
     const inputDateTime = '1918-Sep-17 15:25';
-
-    // Expected output in Russian locale format
     const expectedOutput = '17.09.1918, 15:25';
-
-    // Call the function with the input date and time
     const result = convertDateTimeToRusLocale(inputDateTime);
 
-    // Check if the result matches the expected output
     expect(result).toBe(expectedOutput);
   });
 
   test('should handle invalid input', () => {
-    // Invalid input (non-parsable date and time)
     const invalidInput = 'invalidDateTime';
-
-    // Expected output for invalid input
     const expectedOutput = 'Invalid Date';
-
-    // Call the function with invalid input
     const result = convertDateTimeToRusLocale(invalidInput);
 
-    // Check if the result matches the expected output
     expect(result).toBe(expectedOutput);
   });
 });
 
 describe('formatIntegerToRusLocale', () => {
   test('should format a positive integer to Russian locale format', () => {
-    // Input positive integer
     const inputNumber = 1234567;
-
-    // Expected output in Russian locale format
     const expectedOutput = /^1\s234\s567$/;
-
-    // Call the function with the input number
     const result = formatIntegerToRusLocale(inputNumber);
 
-    // Check if the result matches the expected output using regex
     expect(result).toMatch(expectedOutput);
   });
 
   test('should format a negative integer to Russian locale format', () => {
-    // Input negative integer
     const inputNumber = -9876543;
-
-    // Expected output in Russian locale format
     const expectedOutput = /^-9\s876\s543$/;
-
-    // Call the function with the input number
     const result = formatIntegerToRusLocale(inputNumber);
 
-    // Check if the result matches the expected output using regex
     expect(result).toMatch(expectedOutput);
   });
 
   test('should format zero to Russian locale format', () => {
-    // Input zero
     const inputNumber = 0;
-
-    // Expected output in Russian locale format
     const expectedOutput = '0';
-
-    // Call the function with the input number
     const result = formatIntegerToRusLocale(inputNumber);
 
-    // Check if the result matches the expected output
     expect(result).toBe(expectedOutput);
   });
 });
 
 describe('makeRusPluralization', () => {
-  let forms: [string, string, string]; // Declare the forms variable
+  let forms: [string, string, string];
 
   beforeEach(() => {
-    // Initialize the forms array before each test
     forms = ['лунная орбита', 'лунные орбиты', 'лунных орбит'];
   });
 
@@ -169,19 +126,19 @@ describe('convertStringToRoundedNumber', () => {
   test('should convert a valid string to a rounded number with default decimal places (2)', () => {
     const inputString = '123.456';
     const result = convertStringToRoundedNumber(inputString);
-    expect(result).toBe(123.46); // Rounded to 2 decimal places
+    expect(result).toBe(123.46);
   });
 
   test('should convert a valid string to a rounded number with custom decimal places (1)', () => {
     const inputString = '123.456';
     const result = convertStringToRoundedNumber(inputString, 1);
-    expect(result).toBe(123.5); // Rounded to 1 decimal place
+    expect(result).toBe(123.5);
   });
 
   test('should return NaN for an invalid string', () => {
     const inputString = 'invalid-number';
     const result = convertStringToRoundedNumber(inputString);
-    expect(isNaN(result)).toBe(true); // Should return NaN for invalid input
+    expect(isNaN(result)).toBe(true);
   });
 });
 

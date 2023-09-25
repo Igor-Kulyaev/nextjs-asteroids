@@ -17,7 +17,6 @@ const columns: GridColDef[] = [
     minWidth: 100,
     maxWidth: 200,
     valueGetter: (params) => {
-      // Convert date string to timestamp
       const timestamp = Date.parse(params.row?.close_approach_date_full);
       return isNaN(timestamp) ? null : timestamp;
     },

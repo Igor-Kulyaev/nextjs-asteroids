@@ -44,7 +44,7 @@ export default function VirtualizedAsteroidsList({
   const [newAsteroids, setNewAsteroids] = useState<IAsteroidListItem[]>([]);
   const nextPaginationUrl = useRef(nextPageLink);
 
-  const {toastError, setToastError} = useToastError();
+  const {toastMessage: toastError, setToastMessage: setToastError} = useToastError();
 
   const getNewAsteroids = async () => {
     try {
