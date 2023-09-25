@@ -1,11 +1,6 @@
-import {IAsteroidListItem} from "@/src/models/asteroidsListModel";
 import {AsteroidListItem} from "@/src/entities/AsteroidListItem/AsteroidListItem";
 import styles from "./OrdersList.module.css"
 import {useAsteroidOrders} from "@/src/hooks/useAsteroidOrders";
-
-export interface IOrdersListProps {
-  asteroidOrders: IAsteroidListItem[];
-}
 
 export const OrdersList = () => {
   const {

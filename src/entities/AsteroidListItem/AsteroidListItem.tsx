@@ -7,7 +7,7 @@ import {
   formatIntegerToRusLocale,
   makeRusPluralization,
 } from "@/src/shared/utils/utils";
-import {DistanceSelector} from "@/src/models/sharedModel";
+import {DistanceSelector} from "@/src/models/sharedModels";
 import Link from "next/link";
 
 export interface IAsteroidListItemProps {

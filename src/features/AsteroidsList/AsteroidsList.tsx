@@ -2,7 +2,7 @@ import {IAsteroidListItem, IAsteroidsList} from "@/src/models/asteroidsListModel
 import {Dispatch, MutableRefObject, SetStateAction, useEffect, useRef, useState} from "react";
 import {AsteroidListItem} from "@/src/entities/AsteroidListItem/AsteroidListItem";
 import {Spinner} from "@/src/shared/ui/Spinner/Spinner";
-import {DistanceSelector, ToastType} from "@/src/models/sharedModel";
+import {DistanceSelector, ToastType} from "@/src/models/sharedModels";
 import styles from "./AsteroidsList.module.css"
 import {Toast} from "@/src/shared/ui/Toast/Toast";
 import {useToastError} from "@/src/hooks/useToastError";

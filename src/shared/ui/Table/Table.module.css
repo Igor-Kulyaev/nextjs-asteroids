@@ -1,0 +1,7 @@
+.tableContainer {
+    height: 650px;
+    width: 100%;
+    background-color: var(--white);
+    color: var(--black);
+    overflow-x: auto;
+}

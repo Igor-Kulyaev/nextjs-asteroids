@@ -1,6 +1,6 @@
 import {createContext, Dispatch, SetStateAction} from 'react';
 import {IAsteroidListItem} from "@/src/models/asteroidsListModel";
-import {DistanceSelector} from "@/src/models/sharedModel";
+import {DistanceSelector} from "@/src/models/sharedModels";
 
 interface AsteroidOrdersContextPayload {
   asteroidOrders: IAsteroidListItem[];

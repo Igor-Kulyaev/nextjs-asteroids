@@ -47,19 +47,6 @@ export const formatIntegerToRusLocale = (number: number) => {
   return formatter.format(roundedNumber);
 };
 
-export function formatLunarDistancePluralRus (number: number) {
-  const pluralRules = new Intl.PluralRules('ru-RU');
-  const forms = new Map([
-    ['one', 'лунная орбита'],
-    ['few', 'лунные орбиты'],
-    ['many', 'лунных орбит'],
-    ['other', 'лунных орбит'],
-  ]);
-
-  const pluralForm = pluralRules.select(number);
-  return `${formatIntegerToRusLocale(number)} ${forms.get(pluralForm)}`;
-}
-
 export function makeRusPluralization(forms: [string, string, string], number: number): string {
   const lastDigit = number % 10;
   const lastTwoDigits = number % 100;

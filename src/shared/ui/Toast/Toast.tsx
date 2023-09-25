@@ -1,5 +1,5 @@
 import styles from "./Toast.module.css";
-import {ToastType} from "@/src/models/sharedModel";
+import {ToastType} from "@/src/models/sharedModels";
 export interface IToastProps {
   message: string;
   type?: ToastType;

@@ -1,6 +1,6 @@
 import {IAsteroidListItem, IAsteroidsList} from "@/src/models/asteroidsListModel";
 import {Dispatch, SetStateAction, useCallback, useEffect, useRef, useState} from "react";
-import {DistanceSelector, ToastType} from "@/src/models/sharedModel";
+import {DistanceSelector, ToastType} from "@/src/models/sharedModels";
 import {Virtuoso} from "react-virtuoso";
 import {useToastError} from "@/src/hooks/useToastError";
 import {Toast} from "@/src/shared/ui/Toast/Toast";

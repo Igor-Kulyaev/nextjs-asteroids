@@ -22,12 +22,6 @@
     margin-bottom: 25px;
 }
 
-.customTable {
-    background-color: #db1f1f; /* Background color */
-    color: #00b200; /* Text color */
-    width: 100%; /* Table width */
-}
-
 .planetImg {
     position: fixed;
     top: -100px;

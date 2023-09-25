@@ -1,7 +1,7 @@
 import {ReactNode, useState} from "react";
 import {IAsteroidListItem} from "@/src/models/asteroidsListModel";
 import {AsteroidOrdersContext} from "./AsteroidOrdersContext";
-import {DistanceSelector} from "@/src/models/sharedModel";
+import {DistanceSelector} from "@/src/models/sharedModels";
 
 export function AsteroidOrdersProvider({ children }: {children: ReactNode}) {
   const [asteroidOrders, setAsteroidOrders] = useState<IAsteroidListItem[]>([]);
